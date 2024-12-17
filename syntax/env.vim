@@ -20,15 +20,17 @@ syn match  envQuotedVarOpen	contained	"[\"']"
 syn match  envSpace				"\s$"
 syn match  envQuotedVarClose			"[\"']$"
 
+" Highlighting shell environmental variables
+syn match envShellVariable "\${\h\w\+}" contained
+syn match envShellVariable "\$[a-zA-Z_][a-zA-Z0-9_]*" contained
 
 let b:current_syntax = "env"
 
 hi def link envComment			Comment
-
 hi def link envVariableUnassigned	Error
-
 hi def link envVariable			Identifier
 hi def link envVarAssign		Operator
 hi def link envSpace			Error
 hi def link envQuotedVarOpen		Error
 hi def link envQuotedVarClose		Error
+hi def link envShellVariable		Identifier
